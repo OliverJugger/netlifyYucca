@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Ressources} from "../app.constants";
-import {SousDomaine} from '../model/SousDomaine';
+import {HttpClient} from '@angular/common/http';
+import {Ressources} from '../app.constants';
+import {SousDomaine} from '../model/sousDomaine';
 
 @Injectable({
   providedIn: 'root'
