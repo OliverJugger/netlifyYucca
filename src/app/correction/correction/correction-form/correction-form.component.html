@@ -1,7 +1,7 @@
 <div id="correctionForm" >
   <mat-card class="mat-elevation-z8">
-    <mat-card-title *ngIf="this.correctionInput.id == null; else modification">Ajout d'une Correction</mat-card-title>
-    <mat-card-title *ngIf="this.correctionInput.id != null; else modification">Modification d'une Correction</mat-card-title> 
+    <mat-card-title *ngIf="this.correctionInput.id == null">Ajout d'une Correction</mat-card-title>
+    <mat-card-title *ngIf="this.correctionInput.id != null">Modification d'une Correction</mat-card-title>
     <mat-card-content> 
       <form (ngSubmit)="onSubmit()">
 

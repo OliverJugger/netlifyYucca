@@ -25,4 +25,12 @@ export class VersionComponent implements OnInit {
     this.displayedGenerer = false;
   }
 
+  onLoaded(event) {
+
+  }
+
+  onSelectedVersion(version) {
+
+  }
+
 }
