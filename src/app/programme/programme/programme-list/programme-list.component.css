@@ -1,0 +1,30 @@
+table{
+  width : 100%;
+}
+
+mat-paginator{
+  font-size: 15px;
+}
+
+.programmes-container{
+  margin:auto;
+  width : 90%;
+  padding : 30px;
+  height: 600px;
+  overflow: initial;
+}
+
+.bouton-ajouter{
+  margin-left : 50px;
+}
+
+.mat-row:hover {
+  background-color: #53ffca;
+  cursor: pointer;
+}
+
+app-spinner {
+  position: relative;
+  margin : 20px;
+  left: 45%;
+}

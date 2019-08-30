@@ -1,0 +1,13 @@
+.mat-card {
+  width : 90%;
+  margin:auto;
+  margin-top : 20px;
+}
+
+.mat-card .full-width {
+  width : 100%;
+}
+
+.bouton-ajouter{
+  margin-right : 75px;
+}

@@ -1,0 +1,68 @@
+<div>
+  <mat-card class="mat-elevation-z8">
+    <mat-card-title> {{actionInput}} un Programme</mat-card-title>
+    <mat-card-content>
+      <form>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="ID" [disabled]=true> {{programmeInput.id}}
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Nom" [formControl]="nomFormControl">
+          <mat-hint align="end">Exemple : aagoin22.4gl</mat-hint>
+          <mat-error align="end" *ngIf="nomFormControl.hasError('nom') && !nomFormControl.hasError('required')">
+            Entrez un nom de programme valide.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Répertoire</mat-label>
+          <mat-select [(value)]="this.programmeInput.repertoire.chemin" >
+            <mat-option *ngFor="let repertoire of repertoires" [value]="repertoire.chemin">
+              {{repertoire.chemin}}
+            </mat-option>
+          </mat-select>
+          <mat-hint align="end">Exemple : paye/4gl</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Domaine</mat-label>
+          <mat-select [(value)]="this.programmeInput.domaine.libelleLong">
+            <mat-option *ngFor="let domaine of domaines" [value]="domaine.libelleLong">
+              {{domaine.libelleLong}}
+            </mat-option>
+          </mat-select>
+          <mat-hint align="end">Exemple : Application Paye</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Sous Domaine</mat-label>
+          <mat-select [(value)]="this.programmeInput.sousDomaine.libelleLong">
+            <mat-option *ngFor="let sousDomaine of sousDomaines" [value]="sousDomaine.libelleLong">
+              {{sousDomaine.libelleLong}}
+            </mat-option>
+          </mat-select>
+          <mat-hint align="end">Exemple : Rémunération Principale</mat-hint>
+        </mat-form-field>
+      <br/>
+        <mat-checkbox [labelPosition]="labelPosition" [formControl]="temporaireFormControl">Temporaire :</mat-checkbox>
+
+        <mat-form-field class="full-width">
+          <textarea matInput placeholder="Commentaire" [formControl]="commentaireFormControl"></textarea>
+        </mat-form-field>
+
+        <button *ngIf="actionInput!='Rechercher'" mat-raised-button color="primary" type="button" class="button bouton-ajouter" (click)="onSubmitSave()">
+          <mat-icon matPrefix>add</mat-icon>
+          Enregistrer
+        </button>
+
+        <button *ngIf="actionInput=='Rechercher'" mat-raised-button color="primary" type="button" class="button bouton-ajouter" (click)="onSubmitRechercher()">
+          <mat-icon matPrefix>zoom_in</mat-icon>
+          {{actionInput}}
+        </button>
+
+        <button mat-raised-button color="primary" type="button" class="button" (click)="cancel()">
+          <mat-icon matPrefix>cancel</mat-icon>
+          Annuler
+        </button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

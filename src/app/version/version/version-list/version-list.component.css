@@ -1,0 +1,33 @@
+table{
+  width : 100%;
+}
+
+mat-paginator{
+  font-size: 15px;
+}
+
+.bouton-generer{
+  margin-left : 50px;
+}
+
+.mat-row:hover {
+  background-color: #53ffca;
+  cursor: pointer;
+}
+
+.button {
+  margin-right : 20px;
+}
+
+.buttons {padding-top : 5px;}
+
+.versions-list{
+  width : 90%;
+  margin:auto;
+}
+
+app-spinner {
+  position: relative;
+  margin : 20px;
+  left: 45%;
+}

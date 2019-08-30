@@ -1,0 +1,69 @@
+<div id="correctionForm" >
+  <mat-card class="mat-elevation-z8">
+    <mat-card-title *ngIf="this.correctionInput.id == null; else modification">Ajout d'une Correction</mat-card-title>
+    <mat-card-title *ngIf="this.correctionInput.id != null; else modification">Modification d'une Correction</mat-card-title> 
+    <mat-card-content> 
+      <form (ngSubmit)="onSubmit()">
+
+        <p>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="ID" name="id" [disabled]=true [(ngModel)]="this.correctionInput.id">
+          </mat-form-field>
+        </p>
+
+        <div class="topForm">
+            <mat-form-field class="fieldForm">
+                <mat-label>Auteur :</mat-label>
+                <mat-select [compareWith]="compareObjectsAuteur" [(ngModel)]="this.correctionInput.auteur" name="auteurAlias">
+                    <mat-option *ngFor="let auteur of auteurs" [value]="auteur">
+                      {{auteur.alias}}
+                    </mat-option>
+                </mat-select>
+              </mat-form-field>
+              
+              <mat-form-field class="fieldForm">
+                  <mat-label>Domaine :</mat-label>
+                  <mat-select [compareWith]="compareObjectsDomain" [(ngModel)]="this.correctionInput.domaine" name="domainLibelleCourt">
+                      <mat-option *ngFor="let domain of domaines" [value]="domain">
+                        {{domain.libelleCourt}}
+                      </mat-option>
+                  </mat-select>
+              </mat-form-field> 
+        </div>
+
+        <p>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Titre" name="titre" [(ngModel)]="this.correctionInput.titre">
+        </mat-form-field>
+        </p>
+
+        <div>
+            <p>Probleme :</p>
+            <textarea #textbox type="text" [(ngModel)]="this.correctionInput.probleme" name="probleme"></textarea>
+        </div>
+
+        <div>
+            <p>Solution :</p>
+            <textarea #textbox [(ngModel)]="this.correctionInput.solution" name="correction" ></textarea>
+        </div>
+
+        <div>
+            <p>Commentaires à destination de l'intégration :</p>
+            <textarea #textbox [(ngModel)]="this.correctionInput.commentaire" name="commentaire" ></textarea>
+        </div>
+
+        <div class="submit">
+          <button mat-raised-button color="primary" type="button" class="button" (click)="ajouterUneCorrection()">
+                <mat-icon matPrefix>add</mat-icon>
+                Enregistrer
+          </button>
+          <button mat-raised-button color="primary" type="button" class="button" (click)="annulerAjout()">
+              <mat-icon matPrefix>cancel</mat-icon>
+              Annuler
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+

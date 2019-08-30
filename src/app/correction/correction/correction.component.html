@@ -1,0 +1,12 @@
+<app-correction-form *ngIf="correctionFormIsOpen"
+                     [correctionInput]="correctionFormInput"
+                     (updateView)="onUpdate($event)"
+                     (annuler)="onCancel($event)">
+</app-correction-form>
+
+<app-correction-list (spinner)="onLoaded($event)"
+                     (openCorrection)="onSelectedCorrection($event)"
+                     [displayAjouter]="ajouter"
+                     [updateMatTable]="updateMatTable"
+                     [selectionMultiple]=false>
+</app-correction-list>

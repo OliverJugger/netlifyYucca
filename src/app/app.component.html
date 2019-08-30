@@ -1,0 +1,23 @@
+<div class="container">
+  <mat-toolbar-row>
+    <div class="item auto centered">
+      <img class="logo" src="assets/img/yucca_logo.PNG"/>
+    </div>
+  </mat-toolbar-row>
+  <mat-sidenav-container id="sideNavContainer">
+    <mat-sidenav #drawer mode="side" opened="true">
+      <div id="mat-buttons-menu-container">
+        <button mat-button class="mat-buttons-menu" routerLink="/accueil"><mat-icon>home</mat-icon> Accueil </button>
+        <button mat-button routerLink="/programme" class="mat-buttons-menu"><mat-icon matPrefix>code</mat-icon> Programmes</button>
+        <button mat-button routerLink="/correction" class="mat-buttons-menu"><mat-icon>check_circle</mat-icon> Correction</button>
+        <button mat-button routerLink="/version" class="mat-buttons-menu"><mat-icon>call_merge</mat-icon> Version</button>
+        <button mat-button routerLink="/version" class="mat-buttons-menu"><mat-icon>settings</mat-icon> Administration </button>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+
+      <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

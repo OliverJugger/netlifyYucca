@@ -1,0 +1,36 @@
+#correctionForm{
+    width: 90%;
+    background-color: white;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+mat-label {
+    font-weight: bold;
+}
+
+textarea {
+  resize: none;
+  width: 95%;
+  height: 50px;
+}
+
+.topForm {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   align-items: baseline;
+}
+
+.submit {
+   margin-top: 20px;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+}
+
+.titleForm {
+   font-size: 15px;
+}

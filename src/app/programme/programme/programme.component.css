@@ -1,0 +1,6 @@
+app-spinner {
+  z-index: 100 !important;;
+  position: absolute;
+  left: 40%;
+  top : 25%;
+}

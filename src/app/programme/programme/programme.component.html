@@ -1,0 +1,12 @@
+<app-programme-form    *ngIf="programmeFormInput"
+                       (cancelAction)="onCancel($event)"
+                       (updateView)="onUpdate($event)"
+                       (annuler)="onCancel($event)"
+                       [programmeInput]="programmeFormInput">
+</app-programme-form>
+<app-programme-list (spinner)="onLoaded($event)"
+                    (openProgramme)="onAjouterProgramme($event)"
+                    [displayAjouter]="ajouter"
+                    [updateMatTable]="updateMatTable"
+                    [selectionMultiple]=true>
+</app-programme-list>

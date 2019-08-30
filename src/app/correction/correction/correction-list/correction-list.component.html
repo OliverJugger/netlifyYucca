@@ -1,0 +1,64 @@
+<div class="corrections-container">
+
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Rechercher">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="button bouton-ajouter" (click)="ajouterUneCorrection()" *ngIf="displayAjouter">
+      <mat-icon matPrefix>add</mat-icon>
+      Ajouter une Correction
+    </button>
+  
+    <table mat-table (matSortChange)="sortData($event)" matSortActive="idSort" [dataSource]="correctionDataSource" class="mat-elevation-z8" matSort>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="idSort"> ID </th>
+        <td mat-cell *matCellDef="let correction">
+          {{correction.id}}
+        </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="auteur">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="auteurSort" multiTemplateDataRows> Auteur </th>
+        <td mat-cell *matCellDef="let correction">
+          <span> {{correction.auteur.alias}} </span>
+        </td>
+      </ng-container>
+     
+      <ng-container matColumnDef="dateCreation">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="dateCreationSort"> Date </th>
+        <td mat-cell *matCellDef="let correction">
+          <span>{{correction.dateCreation | date: 'medium' : undefined : 'fr-FR' }}</span>
+        </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="titre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Titre </th>
+        <td mat-cell *matCellDef="let correction">
+          <span> {{correction.titre}} </span>
+        </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="domaine">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Domaine </th>
+        <td mat-cell *matCellDef="let correction">
+          <span> {{correction.domaine.libelleCourt}} </span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="etat">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Etat </th>
+        <td mat-cell *matCellDef="let correction">
+          <span> {{correction.etat}} </span>
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+          [ngClass]="{'selected' : correctionsSelected.indexOf(row.id) !== -1}"
+          (click)="onSelect(row)"></tr>
+    </table>
+    <app-spinner
+      [spinner]="spinner">
+    </app-spinner>
+    <mat-paginator [pageSizeOptions]=pageSizeOptions></mat-paginator>
+  </div>

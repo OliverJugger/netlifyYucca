@@ -1,0 +1,84 @@
+<div class="version-ajouter">
+  <mat-horizontal-stepper [linear]=true #stepper>
+    <button (click)="annulerAjout()" mat-raised-button color="primary" type="button" class="button">
+      <mat-icon matPrefix>cancel</mat-icon>
+      Annuler
+    </button>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Choisissez les corrections à embarquer.</ng-template>
+        <app-correction-list
+          [etat]=etat
+          (openCorrection)="onSelectedCorrection($event)"
+          [selectionMultiple]=true
+        ></app-correction-list>
+        <div>
+          <button matStepperNext mat-raised-button color="primary" type="button" class="button">
+            <mat-icon matPrefix>keyboard_arrow_right</mat-icon>
+            Suivant
+          </button>
+          <button (click)="annulerAjout()" mat-raised-button color="primary" type="button" class="button-cancel">
+            <mat-icon matPrefix>cancel</mat-icon>
+            Annuler
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Choisissez le nom de la version.</ng-template>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Libellé" formControlName="secondCtrl"/>
+          <mat-hint align="end">Exemple : VF1500</mat-hint>
+          <mat-error align="end" *ngIf="libelleFormControl.hasError('libelle') && !libelleFormControl.hasError('required')">
+            Entrez un nom de programme valide.
+          </mat-error>
+        </mat-form-field>
+        <div class="buttons">
+
+          <button matStepperPrevious mat-raised-button color="primary" type="button" class="button" style="margin-right : 10px;">
+            <mat-icon matPrefix>keyboard_arrow_left</mat-icon>
+            Précédent
+          </button>
+
+          <button matStepperNext mat-raised-button color="primary" type="button" class="button">
+            <mat-icon matPrefix>keyboard_arrow_right</mat-icon>
+            Suivant
+          </button>
+
+          <button (click)="annulerAjout()" mat-raised-button color="primary" type="button" class="button-cancel">
+            <mat-icon matPrefix>cancel</mat-icon>
+            Annuler
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Choisissez le nom de la version.</ng-template>
+      <mat-card class="mat-elevation-z8 step">
+        <mat-card-title> Récapitulatif </mat-card-title>
+        <mat-card-content>
+          <form [formGroup]="thirdFormGroup">
+            <mat-form-field class="full-width" formControlName="thirdCtrl">
+              <input matInput placeholder="Libellé">{{this.libelleFormControl.value}}
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+        <button matStepperPrevious mat-raised-button color="primary" type="button" class="button">
+          <mat-icon matPrefix>keyboard_arrow_left</mat-icon>
+          Précédent
+        </button>
+
+        <button mat-raised-button color="primary" type="button" class="button bouton-ajouter" (click)="onSubmitSave()">
+          <mat-icon matPrefix>add</mat-icon>
+          Enregistrer
+        </button>
+
+        <button (click)="stepper.reset()" mat-raised-button color="primary" type="button" class="button">
+          <mat-icon matPrefix>cancel</mat-icon>
+          Recommencer
+        </button>
+      </mat-card>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

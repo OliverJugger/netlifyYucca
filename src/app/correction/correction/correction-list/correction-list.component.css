@@ -1,0 +1,32 @@
+table{
+    width : 100%;
+}
+  
+mat-paginator{
+  font-size: 15px;
+}
+  
+.corrections-container{
+  margin:auto;
+  overflow: initial;
+}
+  
+.bouton-ajouter{
+  margin-left : 45px;
+}
+
+.mat-row:hover {
+  background-color: #53ffca;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #53ffca;
+}
+
+app-spinner {
+  position: relative;
+  margin : 20px;
+  left: 45%;
+}
+

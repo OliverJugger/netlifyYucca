@@ -1,0 +1,19 @@
+<div class="version-container">
+
+  <app-version-ajouter
+     *ngIf = "displayedGenerer"
+    (annuler) = "annulerGeneration()">
+  </app-version-ajouter>
+
+  <mat-divider
+    *ngIf="displayedGenerer">
+  </mat-divider>
+
+  <app-version-list
+    (spinner)="onLoaded($event)"
+    (displayedGenerer)="onSelectedGenerer()"
+    (openVersion)="onSelectedVersion($event)"
+    [displayGenerer]="displayBoutonGenerer">
+  </app-version-list>
+
+</div>

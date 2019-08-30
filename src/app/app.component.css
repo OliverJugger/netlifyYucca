@@ -1,0 +1,55 @@
+.container {
+  position : absolute;
+  top: 0;
+  left: 0;
+  right : 0;
+  bottom: 0;
+  display: inline-block;
+}
+
+.container .mat-drawer{
+  min-width: 200px;
+}
+
+#mat-buttons-menu-container{
+  display: block;
+  height: 400px;
+}
+
+.mat-buttons-menu{
+  height: 20%;
+  width : 100%;
+  font-size : 1.15em;
+  text-align : left;
+}
+
+.mat-sidenav-container{
+  background-color: white;
+  border-top : 5px solid #5c6bc0;
+  border-bottom : 5px solid #5c6bc0;
+  height: 100%;
+}
+
+.mat-sidenav{
+  width : 10%;
+  background-color: #5c6bc0;
+  color : white;
+}
+
+.auto {
+  flex: auto;
+}
+
+.logo{
+  height : 80px;
+}
+
+.centered {
+  min-height : 80px;
+  text-align:center;
+  height : 11%;
+}
+
+#sideNavContainer{
+  height : 89%;
+}
